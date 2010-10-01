@@ -12,7 +12,7 @@
 
 @implementation Topic 
 
-@dynamic newAttribute;
+@dynamic tName;
 @dynamic tURL;
 @dynamic occupation;
 

@@ -14,7 +14,7 @@
 {
 }
 
-@property (nonatomic, retain) NSString * newAttribute;
+@property (nonatomic, retain) NSString * tName;
 @property (nonatomic, retain) NSString * tURL;
 @property (nonatomic, retain) Occupation * occupation;
 

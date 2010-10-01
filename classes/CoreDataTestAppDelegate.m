@@ -9,6 +9,7 @@
 #import "CoreDataTestAppDelegate.h"
 #import "Occupation.h"
 #import "RootViewController.h"
+#import "Topic.h"
 
 
 @implementation CoreDataTestAppDelegate
@@ -39,7 +40,7 @@
     topicInfo.tURL = @"http://google.com";
     NSError *error;
     if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
     }
     
 	// ******PULL THE DATA********
@@ -51,7 +52,8 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (Occupation *occ in fetchedObjects) {
         NSLog(@"Name: %@", occ.name);
-        Topic *topicDetails = info.topicDetails;
+        Topic *topicDetails = topicInfo.topicDetails; //Pastebin: http://pastebin.com/BkZDdSkN
+		NSLog(@"Topic: %@", topicDetails.tName);
         NSLog(@"URL: %@", topicDetails.tURL);
     }        
     [fetchRequest release];
