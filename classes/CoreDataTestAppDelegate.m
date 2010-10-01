@@ -55,7 +55,7 @@
         NSLog(@"URL: %@", topicDetails.tURL);
     }        
     [fetchRequest release];
-    
+    //
     // Override point for customization after app launch    
     RootViewController *root = (RootViewController *) [_navController topViewController];
     root.context = [self managedObjectContext];
