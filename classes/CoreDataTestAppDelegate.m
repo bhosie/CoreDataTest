@@ -39,6 +39,9 @@
                                             inManagedObjectContext:context];
     topicInfo.tName = @"Topic Name";
     topicInfo.tURL = @"http://google.com";
+	//SET RELATIONSHIPS
+	topicInfo.occupation = occupationInfo;
+	occupationInfo.topics = topicInfo;
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
@@ -53,7 +56,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (Occupation *occ in fetchedObjects) {
         NSLog(@"Name: %@", occ.name);
-        Topic *topic = topicInfo;
+        Topic *topic = occ.topics;
 		NSLog(@"Topic: %@", topic.tName);
         NSLog(@"URL: %@", topic.tURL);
     }        

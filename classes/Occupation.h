@@ -15,16 +15,7 @@
 }
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet* topics;
-
-@end
-
-
-@interface Occupation (CoreDataGeneratedAccessors)
-- (void)addTopicsObject:(Topic *)value;
-- (void)removeTopicsObject:(Topic *)value;
-- (void)addTopics:(NSSet *)value;
-- (void)removeTopics:(NSSet *)value;
+@property (nonatomic, retain) Topic * topics;
 
 @end
 
