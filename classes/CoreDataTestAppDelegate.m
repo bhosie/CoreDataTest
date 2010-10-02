@@ -27,6 +27,7 @@
 	
 	
 	// ******CREATE THE DATA********	
+	
 	NSManagedObjectContext *context = [self managedObjectContext];
     Occupation *occupationInfo = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Occupation" 
