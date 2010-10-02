@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "Occupation.h"
+#import "OKWebViewController.h"
 
 
 @implementation RootViewController
@@ -155,22 +156,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+	
+	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+	 [self.navigationController pushViewController:webViewController animated:YES];
+	 [webViewController release];
+	 
 	
-	UIAlertView *alert = [[UIAlertView alloc] 
+	/*UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle:@"You Pushed the Button"
 						  message:@"You are one cool dude!"
 						  delegate:self
 						  cancelButtonTitle:@"OK"
 						  otherButtonTitles:nil];
 	[alert show];
-	[alert release];		
+	[alert release];	*/	
 	
 }
 
