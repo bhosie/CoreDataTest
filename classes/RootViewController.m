@@ -162,6 +162,16 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+	
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"You Pushed the Button"
+						  message:@"You are one cool dude!"
+						  delegate:self
+						  cancelButtonTitle:@"OK"
+						  otherButtonTitles:nil];
+	[alert show];
+	[alert release];		
+	
 }
 
 

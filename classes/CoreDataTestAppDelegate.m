@@ -44,7 +44,7 @@
     }
     
 	// ******PULL THE DATA********
-    // Test listing all FailedBankInfos from the store
+    // Test listing all info from the store
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Occupation" 
                                               inManagedObjectContext:context];
@@ -52,9 +52,9 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (Occupation *occ in fetchedObjects) {
         NSLog(@"Name: %@", occ.name);
-        Topic *topicDetails = topicInfo.topicDetails; //Pastebin: http://pastebin.com/BkZDdSkN
-		NSLog(@"Topic: %@", topicDetails.tName);
-        NSLog(@"URL: %@", topicDetails.tURL);
+        Topic *topic = topicInfo;
+		NSLog(@"Topic: %@", topic.tName);
+        NSLog(@"URL: %@", topic.tURL);
     }        
     [fetchRequest release];
     //
