@@ -74,7 +74,7 @@
 	
 	
     [fetchRequest release];
-	
+	[topicFetchRequest release];
 	
     //Root View Controller
     RootViewController *root = (RootViewController *) [_navController topViewController];
