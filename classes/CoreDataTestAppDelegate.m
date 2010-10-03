@@ -26,6 +26,8 @@
     // Override point for customization after application launch.
 	
 	NSManagedObjectContext *context = [self managedObjectContext];
+	NSManagedObjectContext *contextB = [self managedObjectContext];
+
 		
 	//////********************USE ME TO INITIALIZE SOME TEST DATA. OTHERWISE COMMENT ME OUT.**********************/////
 	
@@ -54,17 +56,24 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Occupation" 
                                               inManagedObjectContext:context];
 	
-	NSFetchRequest *fetchTopics = [[NSFetchRequest alloc] init];
-	NSEntityDescription *theTopics = [NSEntityDescription entityForName:@"Topics"
-												 inManagedObjectContext:context];
+	NSFetchRequest *topicFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *topicEntity = [NSEntityDescription entityForName:@"Topic" 
+                                              inManagedObjectContext:contextB];
+	
 	[fetchRequest setEntity:entity];
-	[fetchTopics setEntity:theTopics];
-
+	[topicFetchRequest setEntity:topicEntity];
+	
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-	NSLog(@"%@", fetchedObjects);
+	for (Occupation *occ in fetchedObjects) {
+		NSLog(@"Name: %@", occ.name);
+		}
+	NSArray *fetchedTopicObjects = [contextB executeFetchRequest:topicFetchRequest error:&error];
+	for (Topic *topic in fetchedTopicObjects) {
+		NSLog(@"Topic Name: %@", topic.tName);
+	}
+	
 	
     [fetchRequest release];
-	[fetchTopics release];
 	
 	
     //Root View Controller
