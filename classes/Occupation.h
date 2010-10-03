@@ -15,7 +15,7 @@
 }
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) Topic * topics;
+@property (nonatomic, retain) NSSet * topics;
 
 @end
 

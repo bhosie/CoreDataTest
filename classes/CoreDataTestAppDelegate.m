@@ -32,16 +32,18 @@
     Occupation *occupationInfo = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Occupation" 
                                       inManagedObjectContext:context];
-	occupationInfo.name = @"Developer";
+	Topic *topicInfo = [NSEntityDescription
+								  insertNewObjectForEntityForName:@"Topic" 
+								  inManagedObjectContext:context];
+	[occupationInfo setValue:@"Developer" forKey:@"name"];
+	[topicInfo setValue:@"test" forKey:@"tName"];
+	[topicInfo setValue:@"http://google.com" forKey:@"tURL"];
+	[NSSet setWithObjects:@"topicInfo", nil];
+	//[topicInfo setValue:@"Topic Name" forKey:@"tName"];
 	
-    Topic *topicInfo = [NSEntityDescription
-                                            insertNewObjectForEntityForName:@"Topic" 
-                                            inManagedObjectContext:context];
-    topicInfo.tName = @"Topic Name";
-    topicInfo.tURL = @"http://google.com";
 	//SET RELATIONSHIPS
 	topicInfo.occupation = occupationInfo;
-	occupationInfo.topics = topicInfo;
+	//occupationInfo.topics = topicInfo;
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
@@ -49,16 +51,18 @@
     
 	// ******PULL THE DATA********
     // Test listing all info from the store
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Occupation" 
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (Occupation *occ in fetchedObjects) {
         NSLog(@"Name: %@", occ.name);
-        Topic *topic = occ.topics;
-		NSLog(@"Topic: %@", topic.tName);
-        NSLog(@"URL: %@", topic.tURL);
+		NSSet *printMySet = occ.topics;
+		NSLog(@"Topic: %@", printMySet);
+       // Topic *topic = occ.topics;
+		//NSLog(@"Topic: %@", topic.tName);
+        //NSLog(@"URL: %@", topic.tURL);
     }        
     [fetchRequest release];
     //
