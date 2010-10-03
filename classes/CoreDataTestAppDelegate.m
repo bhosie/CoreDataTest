@@ -25,11 +25,12 @@
 	
     // Override point for customization after application launch.
 	
-	
-	// ******CREATE THE DATA********	
-	
 	NSManagedObjectContext *context = [self managedObjectContext];
-    Occupation *occupationInfo = [NSEntityDescription
+		
+	//////********************USE ME TO INITIALIZE SOME TEST DATA. OTHERWISE COMMENT ME OUT.**********************/////
+	
+    /*
+	 Occupation *occupationInfo = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Occupation" 
                                       inManagedObjectContext:context];
 	Topic *topicInfo = [NSEntityDescription
@@ -39,42 +40,37 @@
 	[topicInfo setValue:@"test" forKey:@"tName"];
 	[topicInfo setValue:@"http://google.com" forKey:@"tURL"];
 	[NSSet setWithObjects:@"topicInfo", nil];
-	//[topicInfo setValue:@"Topic Name" forKey:@"tName"];
+	*/	
 	
-	//SET RELATIONSHIPS
-	topicInfo.occupation = occupationInfo;
-	//occupationInfo.topics = topicInfo;
-    NSError *error;
+	////////******************************END TEST DATA CODE.*************************************************/////////
+	
+	
+	NSError *error;
     if (![context save:&error]) {
         NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
     }
     
-	// ******PULL THE DATA********
-    // Test listing all info from the store
-   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Occupation" 
                                               inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
+	
+	NSFetchRequest *fetchTopics = [[NSFetchRequest alloc] init];
+	NSEntityDescription *theTopics = [NSEntityDescription entityForName:@"Topics"
+												 inManagedObjectContext:context];
+	[fetchRequest setEntity:entity];
+	[fetchTopics setEntity:theTopics];
+
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (Occupation *occ in fetchedObjects) {
-        NSLog(@"Name: %@", occ.name);
-		NSSet *printMySet = occ.topics;
-		NSLog(@"Topic: %@", printMySet);
-       // Topic *topic = occ.topics;
-		//NSLog(@"Topic: %@", topic.tName);
-        //NSLog(@"URL: %@", topic.tURL);
-    }        
+	NSLog(@"%@", fetchedObjects);
+	
     [fetchRequest release];
-    //
-    // Override point for customization after app launch    
+	[fetchTopics release];
+	
+	
+    //Root View Controller
     RootViewController *root = (RootViewController *) [_navController topViewController];
     root.context = [self managedObjectContext];
-    [window addSubview:_navController.view];
-	
-	
-	
-	
-	
+    [window addSubview:_navController.view];	
 	
     [window makeKeyAndVisible];
 	
