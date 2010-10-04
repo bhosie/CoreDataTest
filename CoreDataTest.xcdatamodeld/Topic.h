@@ -2,7 +2,7 @@
 //  Topic.h
 //  CoreDataTest
 //
-//  Created by Brian Hosie on 10/1/10.
+//  Created by Brian Hosie on 10/4/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 

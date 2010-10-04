@@ -42,7 +42,7 @@
     [fetchRequest setEntity:entity];
     NSError *error;
     self.occupationInfo = [_context executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Occupaitons"; 
+    self.title = @"Occupations"; 
     [fetchRequest release];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -106,7 +106,7 @@
     
     // Configure the cell...
     Occupation *occ = [_occupationInfo objectAtIndex:indexPath.row];
-    cell.textLabel.text = occ.name;
+    cell.textLabel.text = occ.occName;
     return cell;
 }
 

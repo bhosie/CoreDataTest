@@ -65,11 +65,13 @@
 	
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
 	for (Occupation *occ in fetchedObjects) {
-		NSLog(@"Name: %@", occ.name);
+		NSLog(@"Name: %@", occ.occName);
+		NSLog(@"Name: %@", occ.clusterID);
 		}
 	NSArray *fetchedTopicObjects = [contextB executeFetchRequest:topicFetchRequest error:&error];
 	for (Topic *topic in fetchedTopicObjects) {
 		NSLog(@"Topic Name: %@", topic.tName);
+		NSLog(@"Topic URL: %@", topic.tURL);
 	}
 	
 	
