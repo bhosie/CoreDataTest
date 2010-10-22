@@ -23,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	
+	//[self loadInitialData];
     // Override point for customization after application launch.
 	
 	NSManagedObjectContext *context = [self managedObjectContext];
@@ -46,8 +47,7 @@
 	
 	////////******************************END TEST DATA CODE.*************************************************/////////
 	
-	
-	NSError *error;
+	/*NSError *error;
     if (![context save:&error]) {
         NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
     }
@@ -77,7 +77,7 @@
 	
     [fetchRequest release];
 	[topicFetchRequest release];
-	
+	*/
     //Root View Controller
     RootViewController *root = (RootViewController *) [_navController topViewController];
     root.context = [self managedObjectContext];
@@ -86,6 +86,73 @@
     [window makeKeyAndVisible];
 	
 	return YES;
+}
+
+- (void)loadInitialData
+{
+	//Confirm method is running	
+    NSLog(@"loadInitialData launched");
+	
+	
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSManagedObjectContext *context = [self managedObjectContext];//[[NSManagedObjectContext alloc] init];
+    //[context setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"list" ofType:@"txt"];
+	NSString* string = [[NSString alloc] initWithContentsOfFile:path];
+    NSArray *parts = [string componentsSeparatedByString:@";"];
+	
+	NSString *occ, *clus, *top, *topURL;
+	for(int i = 0; i < [parts count]; i+=34)
+	{
+		occ = [parts objectAtIndex:i];
+		clus = [parts objectAtIndex:i+1];
+		
+		Occupation *occupation = [NSEntityDescription
+								  insertNewObjectForEntityForName:@"Occupation" 
+								  inManagedObjectContext:context];	
+		
+		
+		[occupation setValue:(@"%@", occ) forKey:@"occName"];
+		[occupation setValue:(@"%@", clus) forKey:@"clusterID"];
+		
+		NSMutableArray *allTopics = [[NSMutableArray alloc] initWithCapacity:16];
+		for(int j = i+2; j < i+34; j+=2) // Topics Loop
+		{
+			// Grab a single topic and its URL 
+			top = [parts objectAtIndex:j];
+			topURL = [parts objectAtIndex:j+1];
+			
+			// Create topic instance, populate its fields
+			Topic *topic = [NSEntityDescription
+							insertNewObjectForEntityForName:@"Topic" 
+							inManagedObjectContext:context];			
+			[topic setValue:(@"%@", top) forKey:@"tName"];
+			[topic setValue:(@"%@", topURL) forKey:@"tURL"];
+			
+			// Shove it into the NSSet
+			[allTopics addObject:topic];
+			//[topic release];
+			
+			//NSLog(@"%i ENTRY IS: %@, %@, %@, %@ \n------------------------------", i, occ, clus, top, topURL);
+		}
+		
+		NSSet *a = [NSSet setWithArray:allTopics];
+		//NSLog(@"%@", a);
+		[occupation setValue:a forKey:@"topics"];	
+		//NSLog(@"%@", occupation);
+		
+		//[occupation release];
+		
+	}
+	NSError *error = nil; 
+	[context save:&error];
+    
+    [string release];		
+    [context release];
+    [pool drain];
+	
+	NSLog(@"ALL DONE");
 }
 
 
