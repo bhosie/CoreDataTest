@@ -31,18 +31,18 @@
 		
 	//////********************USE ME TO INITIALIZE SOME TEST DATA. OTHERWISE COMMENT ME OUT.**********************/////
 	
-    /*
+    
 	 Occupation *occupationInfo = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Occupation" 
                                       inManagedObjectContext:context];
 	Topic *topicInfo = [NSEntityDescription
 								  insertNewObjectForEntityForName:@"Topic" 
 								  inManagedObjectContext:context];
-	[occupationInfo setValue:@"Developer" forKey:@"name"];
+	[occupationInfo setValue:@"Developer" forKey:@"occName"];
 	[topicInfo setValue:@"test" forKey:@"tName"];
 	[topicInfo setValue:@"http://google.com" forKey:@"tURL"];
 	[NSSet setWithObjects:@"topicInfo", nil];
-	*/	
+		
 	
 	////////******************************END TEST DATA CODE.*************************************************/////////
 	
