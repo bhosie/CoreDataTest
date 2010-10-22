@@ -37,3 +37,8 @@ CVS
 Backup[ ]of[ ]*.pages/
 Backup[ ]of[ ]*.key/
 Backup[ ]of[ ]*.numbers/
+
+
+#databases
+*.sqlite
+*.sqlite3

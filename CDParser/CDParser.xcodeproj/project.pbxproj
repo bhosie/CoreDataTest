@@ -7,45 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11B1F15012567204007FE8E4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B1F14F12567204007FE8E4 /* RootViewController.m */; };
-		1D3623260D0F684500981E51 /* CoreDataTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* CoreDataTestAppDelegate.m */; };
+		1D3623260D0F684500981E51 /* CDParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* CDParserAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		28193060112F816700ECF9B4 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2819305F112F816700ECF9B4 /* CoreDataTest.xcdatamodeld */; };
+		28193060112F816700ECF9B4 /* CDParser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2819305F112F816700ECF9B4 /* CDParser.xcdatamodeld */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
-		D36DE49212579CDC00DD5D0B /* OKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36DE49012579CDC00DD5D0B /* OKWebViewController.m */; };
-		D36DE49312579CDC00DD5D0B /* OKWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36DE49112579CDC00DD5D0B /* OKWebViewController.xib */; };
-		D37CE003127218750010C5D1 /* list.txt in Resources */ = {isa = PBXBuildFile; fileRef = D37CE002127218750010C5D1 /* list.txt */; };
-		D3ABD93B125A768800AAC69E /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ABD938125A768800AAC69E /* Topic.m */; };
-		D3ABD93C125A768800AAC69E /* Occupation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ABD93A125A768800AAC69E /* Occupation.m */; };
+		D3ABD9AD125A805100AAC69E /* CoreDataTest.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D3ABD9AC125A805100AAC69E /* CoreDataTest.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11B1F14E12567204007FE8E4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		11B1F14F12567204007FE8E4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* CoreDataTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTestAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* CoreDataTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTestAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D3623240D0F684500981E51 /* CDParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDParserAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* CDParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDParserAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* CDParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28C3AD890F43EF2300507BA6 /* CoreDataTest.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTest.xcdatamodel; sourceTree = "<group>"; };
+		28C3AD890F43EF2300507BA6 /* CDParser.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CDParser.xcdatamodel; sourceTree = "<group>"; };
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* CoreDataTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTest_Prefix.pch; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* CoreDataTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CoreDataTest-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		D36DE48F12579CDC00DD5D0B /* OKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKWebViewController.h; sourceTree = "<group>"; };
-		D36DE49012579CDC00DD5D0B /* OKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKWebViewController.m; sourceTree = "<group>"; };
-		D36DE49112579CDC00DD5D0B /* OKWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OKWebViewController.xib; path = Classes/OKWebViewController.xib; sourceTree = "<group>"; };
-		D37CE002127218750010C5D1 /* list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.txt; sourceTree = "<group>"; };
-		D3ABD937125A768800AAC69E /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = ../CoreDataTest.xcdatamodeld/Topic.h; sourceTree = "<group>"; };
-		D3ABD938125A768800AAC69E /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = ../CoreDataTest.xcdatamodeld/Topic.m; sourceTree = "<group>"; };
-		D3ABD939125A768800AAC69E /* Occupation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Occupation.h; path = ../CoreDataTest.xcdatamodeld/Occupation.h; sourceTree = "<group>"; };
-		D3ABD93A125A768800AAC69E /* Occupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Occupation.m; path = ../CoreDataTest.xcdatamodeld/Occupation.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* CDParser_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDParser_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* CDParser-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CDParser-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D3ABD9AC125A805100AAC69E /* CoreDataTest.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTest.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +52,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D3ABD937125A768800AAC69E /* Topic.h */,
-				D3ABD938125A768800AAC69E /* Topic.m */,
-				D3ABD939125A768800AAC69E /* Occupation.h */,
-				D3ABD93A125A768800AAC69E /* Occupation.m */,
-				1D3623240D0F684500981E51 /* CoreDataTestAppDelegate.h */,
-				1D3623250D0F684500981E51 /* CoreDataTestAppDelegate.m */,
-				11B1F14E12567204007FE8E4 /* RootViewController.h */,
-				11B1F14F12567204007FE8E4 /* RootViewController.m */,
-				D36DE48F12579CDC00DD5D0B /* OKWebViewController.h */,
-				D36DE49012579CDC00DD5D0B /* OKWebViewController.m */,
+				1D3623240D0F684500981E51 /* CDParserAppDelegate.h */,
+				1D3623250D0F684500981E51 /* CDParserAppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -83,7 +61,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* CoreDataTest.app */,
+				1D6058910D05DD3D006BFB54 /* CDParser.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +81,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* CoreDataTest_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* CDParser_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -112,11 +90,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D37CE002127218750010C5D1 /* list.txt */,
-				D36DE49112579CDC00DD5D0B /* OKWebViewController.xib */,
-				2819305F112F816700ECF9B4 /* CoreDataTest.xcdatamodeld */,
+				2819305F112F816700ECF9B4 /* CDParser.xcdatamodeld */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* CoreDataTest-Info.plist */,
+				8D1107310486CEB800E47090 /* CDParser-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -135,9 +111,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* CoreDataTest */ = {
+		1D6058900D05DD3D006BFB54 /* CDParser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CoreDataTest" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CDParser" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -147,9 +123,9 @@
 			);
 			dependencies = (
 			);
-			name = CoreDataTest;
-			productName = CoreDataTest;
-			productReference = 1D6058910D05DD3D006BFB54 /* CoreDataTest.app */;
+			name = CDParser;
+			productName = CDParser;
+			productReference = 1D6058910D05DD3D006BFB54 /* CDParser.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -157,14 +133,14 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CoreDataTest" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CDParser" */;
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* CoreDataTest */,
+				1D6058900D05DD3D006BFB54 /* CDParser */,
 			);
 		};
 /* End PBXProject section */
@@ -175,8 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				D36DE49312579CDC00DD5D0B /* OKWebViewController.xib in Resources */,
-				D37CE003127218750010C5D1 /* list.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,12 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* CoreDataTestAppDelegate.m in Sources */,
-				28193060112F816700ECF9B4 /* CoreDataTest.xcdatamodeld in Sources */,
-				11B1F15012567204007FE8E4 /* RootViewController.m in Sources */,
-				D36DE49212579CDC00DD5D0B /* OKWebViewController.m in Sources */,
-				D3ABD93B125A768800AAC69E /* Topic.m in Sources */,
-				D3ABD93C125A768800AAC69E /* Occupation.m in Sources */,
+				1D3623260D0F684500981E51 /* CDParserAppDelegate.m in Sources */,
+				28193060112F816700ECF9B4 /* CDParser.xcdatamodeld in Sources */,
+				D3ABD9AD125A805100AAC69E /* CoreDataTest.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,9 +179,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CoreDataTest_Prefix.pch;
-				INFOPLIST_FILE = "CoreDataTest-Info.plist";
-				PRODUCT_NAME = CoreDataTest;
+				GCC_PREFIX_HEADER = CDParser_Prefix.pch;
+				INFOPLIST_FILE = "CDParser-Info.plist";
+				PRODUCT_NAME = CDParser;
 			};
 			name = Debug;
 		};
@@ -220,9 +191,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CoreDataTest_Prefix.pch;
-				INFOPLIST_FILE = "CoreDataTest-Info.plist";
-				PRODUCT_NAME = CoreDataTest;
+				GCC_PREFIX_HEADER = CDParser_Prefix.pch;
+				INFOPLIST_FILE = "CDParser-Info.plist";
+				PRODUCT_NAME = CDParser;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -257,7 +228,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CoreDataTest" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CDParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -266,7 +237,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CoreDataTest" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CDParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
@@ -278,13 +249,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2819305F112F816700ECF9B4 /* CoreDataTest.xcdatamodeld */ = {
+		2819305F112F816700ECF9B4 /* CDParser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				28C3AD890F43EF2300507BA6 /* CoreDataTest.xcdatamodel */,
+				D3ABD9AC125A805100AAC69E /* CoreDataTest.xcdatamodel */,
+				28C3AD890F43EF2300507BA6 /* CDParser.xcdatamodel */,
 			);
-			currentVersion = 28C3AD890F43EF2300507BA6 /* CoreDataTest.xcdatamodel */;
-			path = CoreDataTest.xcdatamodeld;
+			currentVersion = 28C3AD890F43EF2300507BA6 /* CDParser.xcdatamodel */;
+			path = CDParser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -1,21 +1,17 @@
 //
-//  CoreDataTestAppDelegate.m
-//  CoreDataTest
+//  CDParserAppDelegate.m
+//  CDParser
 //
-//  Created by Brent Hosie on 10/1/10.
-//  Copyright University Of Utah 2010. All rights reserved.
+//  Created by Brian Hosie on 10/4/10.
+//  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import "CoreDataTestAppDelegate.h"
-#import "Occupation.h"
-#import "RootViewController.h"
-#import "Topic.h"
+#import "CDParserAppDelegate.h"
 
 
-@implementation CoreDataTestAppDelegate
+@implementation CDParserAppDelegate
 
 @synthesize window;
-@synthesize navController = _navController;
 
 
 #pragma mark -
@@ -23,136 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	
-	//[self loadInitialData];
     // Override point for customization after application launch.
-	
-	//NSManagedObjectContext *context = [self managedObjectContext];
-	//NSManagedObjectContext *contextB = [self managedObjectContext];
-
-		
-	//////********************USE ME TO INITIALIZE SOME TEST DATA. OTHERWISE COMMENT ME OUT.**********************/////
-	
-    
-	 /*Occupation *occupationInfo = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Occupation" 
-                                      inManagedObjectContext:context];
-	Topic *topicInfo = [NSEntityDescription
-								  insertNewObjectForEntityForName:@"Topic" 
-								  inManagedObjectContext:context];
-	[occupationInfo setValue:@"Developer" forKey:@"occName"];
-	[topicInfo setValue:@"test" forKey:@"tName"];
-	[topicInfo setValue:@"http://google.com" forKey:@"tURL"];
-	[NSSet setWithObjects:@"topicInfo", nil];*/
-		
-	
-	////////******************************END TEST DATA CODE.*************************************************/////////
-	
-	/*NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Error. Couldn't Save: %@", [error localizedDescription]);
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Occupation" 
-                                              inManagedObjectContext:context];
-	
-	NSFetchRequest *topicFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *topicEntity = [NSEntityDescription entityForName:@"Topic" 
-                                              inManagedObjectContext:contextB];
-	
-	[fetchRequest setEntity:entity];
-	[topicFetchRequest setEntity:topicEntity];
-	
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-	for (Occupation *occ in fetchedObjects) {
-		NSLog(@"Name: %@", occ.occName);
-		NSLog(@"Name: %@", occ.clusterID);
-		}
-	NSArray *fetchedTopicObjects = [contextB executeFetchRequest:topicFetchRequest error:&error];
-	for (Topic *topic in fetchedTopicObjects) {
-		NSLog(@"Topic Name: %@", topic.tName);
-		NSLog(@"Topic URL: %@", topic.tURL);
-	}
-	
-	
-    [fetchRequest release];
-	[topicFetchRequest release];
-	*/
-    //Root View Controller
-    RootViewController *root = (RootViewController *) [_navController topViewController];
-    root.context = [self managedObjectContext];
-    [window addSubview:_navController.view];	
 	
     [window makeKeyAndVisible];
 	
 	return YES;
-}
-
-- (void)loadInitialData
-{
-	//Confirm method is running	
-    NSLog(@"loadInitialData launched");
-	
-	
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSManagedObjectContext *context = [self managedObjectContext];//[[NSManagedObjectContext alloc] init];
-    //[context setPersistentStoreCoordinator:self.persistentStoreCoordinator];
-    
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"list" ofType:@"txt"];
-	NSString* string = [[NSString alloc] initWithContentsOfFile:path];
-    NSArray *parts = [string componentsSeparatedByString:@";"];
-	
-	NSString *occ, *clus, *top, *topURL;
-	for(int i = 0; i < [parts count]; i+=34)
-	{
-		occ = [parts objectAtIndex:i];
-		clus = [parts objectAtIndex:i+1];
-		
-		Occupation *occupation = [NSEntityDescription
-								  insertNewObjectForEntityForName:@"Occupation" 
-								  inManagedObjectContext:context];	
-		
-		
-		[occupation setValue:(@"%@", occ) forKey:@"occName"];
-		[occupation setValue:(@"%@", clus) forKey:@"clusterID"];
-		
-		NSMutableArray *allTopics = [[NSMutableArray alloc] initWithCapacity:16];
-		for(int j = i+2; j < i+34; j+=2) // Topics Loop
-		{
-			// Grab a single topic and its URL 
-			top = [parts objectAtIndex:j];
-			topURL = [parts objectAtIndex:j+1];
-			
-			// Create topic instance, populate its fields
-			Topic *topic = [NSEntityDescription
-							insertNewObjectForEntityForName:@"Topic" 
-							inManagedObjectContext:context];			
-			[topic setValue:(@"%@", top) forKey:@"tName"];
-			[topic setValue:(@"%@", topURL) forKey:@"tURL"];
-			
-			// Shove it into the NSSet
-			[allTopics addObject:topic];
-			//[topic release];
-			
-			//NSLog(@"%i ENTRY IS: %@, %@, %@, %@ \n------------------------------", i, occ, clus, top, topURL);
-		}
-		
-		NSSet *a = [NSSet setWithArray:allTopics];
-		//NSLog(@"%@", a);
-		[occupation setValue:a forKey:@"topics"];	
-		//NSLog(@"%@", occupation);
-		
-		//[occupation release];
-		
-	}
-	NSError *error = nil; 
-	[context save:&error];
-    
-    [string release];		
-    [context release];
-    [pool drain];
-	
-	NSLog(@"ALL DONE");
 }
 
 
@@ -237,7 +108,7 @@
     if (managedObjectModel_ != nil) {
         return managedObjectModel_;
     }
-    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"CoreDataTest" ofType:@"momd"];
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"CDParser" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return managedObjectModel_;
@@ -254,7 +125,7 @@
         return persistentStoreCoordinator_;
     }
     
-    NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"CoreDataTest.sqlite"]];
+    NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"CDParser.sqlite"]];
     
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -318,7 +189,6 @@
     [persistentStoreCoordinator_ release];
     
     [window release];
-	[_navController release];	
     [super dealloc];
 }
 
