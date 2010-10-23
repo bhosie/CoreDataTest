@@ -21,6 +21,7 @@
 		D37CE003127218750010C5D1 /* list.txt in Resources */ = {isa = PBXBuildFile; fileRef = D37CE002127218750010C5D1 /* list.txt */; };
 		D3ABD93B125A768800AAC69E /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ABD938125A768800AAC69E /* Topic.m */; };
 		D3ABD93C125A768800AAC69E /* Occupation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ABD93A125A768800AAC69E /* Occupation.m */; };
+		D3B7ED701273A23100AEFEAB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B7ED6F1273A23100AEFEAB /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		D3ABD938125A768800AAC69E /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = ../CoreDataTest.xcdatamodeld/Topic.m; sourceTree = "<group>"; };
 		D3ABD939125A768800AAC69E /* Occupation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Occupation.h; path = ../CoreDataTest.xcdatamodeld/Occupation.h; sourceTree = "<group>"; };
 		D3ABD93A125A768800AAC69E /* Occupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Occupation.m; path = ../CoreDataTest.xcdatamodeld/Occupation.m; sourceTree = "<group>"; };
+		D3B7ED6E1273A23100AEFEAB /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		D3B7ED6F1273A23100AEFEAB /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				1D3623250D0F684500981E51 /* CoreDataTestAppDelegate.m */,
 				11B1F14E12567204007FE8E4 /* RootViewController.h */,
 				11B1F14F12567204007FE8E4 /* RootViewController.m */,
+				D3B7ED6E1273A23100AEFEAB /* DetailViewController.h */,
+				D3B7ED6F1273A23100AEFEAB /* DetailViewController.m */,
 				D36DE48F12579CDC00DD5D0B /* OKWebViewController.h */,
 				D36DE49012579CDC00DD5D0B /* OKWebViewController.m */,
 			);
@@ -194,6 +199,7 @@
 				D36DE49212579CDC00DD5D0B /* OKWebViewController.m in Sources */,
 				D3ABD93B125A768800AAC69E /* Topic.m in Sources */,
 				D3ABD93C125A768800AAC69E /* Occupation.m in Sources */,
+				D3B7ED701273A23100AEFEAB /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

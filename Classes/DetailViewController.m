@@ -1,21 +1,18 @@
 //
-//  RootViewController.m
+//  DetailViewController.m
 //  CoreDataTest
 //
-//  Created by Brent Hosie on 10/1/10.
-//  Copyright 2010 University Of Utah. All rights reserved.
+//  Created by Brian Hosie on 10/23/10.
+//  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "DetailViewController.h"
 #import "RootViewController.h"
 #import "Occupation.h"
 #import "Topic.h"
-#import "OKWebViewController.h"
 
 
-@implementation RootViewController
-@synthesize occupationInfo;
-@synthesize topicInfo;
-@synthesize context;
+@implementation DetailViewController
 
 
 #pragma mark -
@@ -34,24 +31,14 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription 
-								   entityForName:@"Occupation" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.occupationInfo = [context executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Occupations";
-	
-    [fetchRequest release];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,7 +80,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [occupationInfo count];
+    return 16;
 }
 
 
@@ -108,10 +95,10 @@
     }
     
     // Configure the cell...
-    Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
-    cell.textLabel.text = occ.occName;
 	
-	return cell;
+	NSManagedObject *theObject = self;
+    NSSet *occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
+    return cell;
 }
 
 
@@ -160,60 +147,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
-	//Topic *topicStuff = [occupationInfo objectAtIndex:indexPath.row];
-	
-	UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle:@"You Pushed the Following Button!"
-						  message:(@"%@", occ.occName)
-						  delegate:self
-						  cancelButtonTitle:@"OK"
-						  otherButtonTitles:nil];
-	[alert show];
-	[alert release];		
-	
-	NSLog(@"you pushed the %@ button", occ.occName );
-	
-	NSFetchRequest *topicFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *topicEntity = [NSEntityDescription entityForName:@"Topic" 
-												   inManagedObjectContext:context];
-    [topicFetchRequest setEntity:topicEntity];
-	
-
-
-    NSError *error;
-	self.topicInfo = [context executeFetchRequest:topicFetchRequest error:&error];
-	
-	//NSSet *theTopicName = [topicInfo valueForKey:@"tName"];
-	
-	
-	NSManagedObject *theObject = occ.self;
-	NSSet *occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
-	NSSet *occTopicsURL = [theObject valueForKeyPath:@"topics.tURL"];
-	
-	NSLog(@"%@", theObject);
-	NSLog(@"%@", occTopicsName);
-	NSLog(@"%@", occTopicsURL);
-	
-	    [topicFetchRequest release];
-	
-	
-	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
+	/*
+	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:webViewController animated:YES];
-	 [webViewController release];
-	 
-	
-	/*UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle:@"You Pushed the Button"
-						  message:@"You are one cool dude!"
-						  delegate:self
-						  cancelButtonTitle:@"OK"
-						  otherButtonTitles:nil];
-	[alert show];
-	[alert release];	*/	
-	
+	 [self.navigationController pushViewController:detailViewController animated:YES];
+	 [detailViewController release];
+	 */
 }
 
 
