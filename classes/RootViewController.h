@@ -12,11 +12,13 @@
 @interface RootViewController : UITableViewController {
 	//UINavigationController *navController;
 	NSArray *occupationInfo;
+	NSArray *topicInfo;
 	NSManagedObjectContext *context;
 }
 
 //@property (nonatomic, retain) UINavigationController *navController;
 @property (nonatomic, retain) NSArray *occupationInfo;
+@property (nonatomic, retain) NSArray *topicInfo;
 @property (nonatomic, retain) NSManagedObjectContext *context;
 
 @end

@@ -8,11 +8,13 @@
 
 #import "RootViewController.h"
 #import "Occupation.h"
+#import "Topic.h"
 #import "OKWebViewController.h"
 
 
 @implementation RootViewController
 @synthesize occupationInfo;
+@synthesize topicInfo;
 @synthesize context;
 
 
@@ -110,13 +112,6 @@
     cell.textLabel.text = occ.occName;
 	
 	return cell;
-	
-	if (occ.occName == @"yes") {
-		NSLog(@"It works!");
-	} else {
-		NSLog(@"nope");
-	}
-
 }
 
 
@@ -166,7 +161,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
-    NSLog(@"you pushed the %@ button", occ.occName );
+	Topic *topicStuff = [occupationInfo objectAtIndex:indexPath.row];
 	
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle:@"You Pushed the Following Button!"
@@ -176,6 +171,29 @@
 						  otherButtonTitles:nil];
 	[alert show];
 	[alert release];		
+	
+	NSLog(@"you pushed the %@ button", occ.occName );
+	
+	NSFetchRequest *topicFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *topicEntity = [NSEntityDescription entityForName:@"Topic" 
+												   inManagedObjectContext:context];
+    [topicFetchRequest setEntity:topicEntity];
+	
+
+
+    NSError *error;
+	self.topicInfo = [context executeFetchRequest:topicFetchRequest error:&error];
+	
+	//NSSet *theTopicName = [topicInfo valueForKey:@"tName"];
+	
+	
+	NSManagedObject *theObject = occ.self;
+	NSSet *occTopics = [theObject valueForKey:@"topics"];
+	
+	NSLog(@"%@", occTopics);
+	
+	    [topicFetchRequest release];
+	
 	
 	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
      // ...
