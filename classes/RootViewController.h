@@ -11,8 +11,8 @@
 
 @interface RootViewController : UITableViewController {
 	//UINavigationController *navController;
-	NSArray *_occupationInfo;
-	NSManagedObjectContext *_context;
+	NSArray *occupationInfo;
+	NSManagedObjectContext *context;
 }
 
 //@property (nonatomic, retain) UINavigationController *navController;

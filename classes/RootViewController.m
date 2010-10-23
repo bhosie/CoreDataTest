@@ -12,8 +12,8 @@
 
 
 @implementation RootViewController
-@synthesize occupationInfo = _occupationInfo;
-@synthesize context = _context;
+@synthesize occupationInfo;
+@synthesize context;
 
 
 #pragma mark -
@@ -38,11 +38,12 @@
 	
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription 
-								   entityForName:@"Occupation" inManagedObjectContext:_context];
+								   entityForName:@"Occupation" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSError *error;
-    self.occupationInfo = [_context executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Occupations"; 
+    self.occupationInfo = [context executeFetchRequest:fetchRequest error:&error];
+    self.title = @"Occupations";
+	
     [fetchRequest release];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -90,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_occupationInfo count];
+    return [occupationInfo count];
 }
 
 
@@ -105,9 +106,17 @@
     }
     
     // Configure the cell...
-    Occupation *occ = [_occupationInfo objectAtIndex:indexPath.row];
+    Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
     cell.textLabel.text = occ.occName;
-    return cell;
+	
+	return cell;
+	
+	if (occ.occName == @"yes") {
+		NSLog(@"It works!");
+	} else {
+		NSLog(@"nope");
+	}
+
 }
 
 
@@ -156,6 +165,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
+	Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
+    NSLog(@"you pushed the %@ button", occ.occName );
+	
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"You Pushed the Following Button!"
+						  message:(@"%@", occ.occName)
+						  delegate:self
+						  cancelButtonTitle:@"OK"
+						  otherButtonTitles:nil];
+	[alert show];
+	[alert release];		
 	
 	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
      // ...
