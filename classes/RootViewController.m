@@ -188,8 +188,9 @@
 	
 	
 	NSManagedObject *theObject = occ.self;
-	NSSet *occTopics = [theObject valueForKey:@"topics"];
+	NSSet *occTopics = [theObject valueForKeyPath:@"topics.tURL"];
 	
+	NSLog(@"%@", theObject);
 	NSLog(@"%@", occTopics);
 	
 	    [topicFetchRequest release];
