@@ -12,9 +12,14 @@
 @interface OKWebViewController : UIViewController {
 		
 	IBOutlet UIWebView *webView;
+	IBOutlet UIButton *backButton;
+	NSString *aURL, *aName; 
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) IBOutlet UIButton *backButton;
+@property (nonatomic, retain) NSString *aURL;
+@property (nonatomic, retain) NSString *aName;
 
 @end

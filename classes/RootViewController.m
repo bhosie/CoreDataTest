@@ -10,6 +10,7 @@
 #import "Occupation.h"
 #import "Topic.h"
 #import "OKWebViewController.h"
+#import "DetailViewController.h"
 
 
 @implementation RootViewController
@@ -161,58 +162,41 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	Occupation *occ = [occupationInfo objectAtIndex:indexPath.row];
-	//Topic *topicStuff = [occupationInfo objectAtIndex:indexPath.row];
+
 	
-	UIAlertView *alert = [[UIAlertView alloc] 
+	/*UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle:@"You Pushed the Following Button!"
 						  message:(@"%@", occ.occName)
 						  delegate:self
 						  cancelButtonTitle:@"OK"
 						  otherButtonTitles:nil];
 	[alert show];
-	[alert release];		
+	[alert release];*/		
 	
 	NSLog(@"you pushed the %@ button", occ.occName );
 	
-	NSFetchRequest *topicFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *topicEntity = [NSEntityDescription entityForName:@"Topic" 
-												   inManagedObjectContext:context];
-    [topicFetchRequest setEntity:topicEntity];
 	
-
-
-    NSError *error;
-	self.topicInfo = [context executeFetchRequest:topicFetchRequest error:&error];
 	
 	//NSSet *theTopicName = [topicInfo valueForKey:@"tName"];
 	
-	
+	//TODO: Pass this stuff to the DetailViewController
 	NSManagedObject *theObject = occ.self;
 	NSSet *occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
 	NSSet *occTopicsURL = [theObject valueForKeyPath:@"topics.tURL"];
 	
-	NSLog(@"%@", theObject);
-	NSLog(@"%@", occTopicsName);
-	NSLog(@"%@", occTopicsURL);
+	//NSLog(@"%@", theObject);
+	//NSLog(@"%@", occTopicsName);
+	//NSLog(@"%@", occTopicsURL);
 	
-	    [topicFetchRequest release];
+	    
 	
 	
-	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
-     // ...
+	 DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
+	detailViewController.theObject = theObject;
+	// ...
      // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:webViewController animated:YES];
-	 [webViewController release];
-	 
-	
-	/*UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle:@"You Pushed the Button"
-						  message:@"You are one cool dude!"
-						  delegate:self
-						  cancelButtonTitle:@"OK"
-						  otherButtonTitles:nil];
-	[alert show];
-	[alert release];	*/	
+	 [self.navigationController pushViewController:detailViewController animated:YES];
+	 [detailViewController release];
 	
 }
 

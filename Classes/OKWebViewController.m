@@ -7,11 +7,14 @@
 //
 
 #import "OKWebViewController.h"
+#import "DetailViewController.h"
 
 
 @implementation OKWebViewController
 
-@synthesize webView;
+@synthesize webView, backButton;
+
+@synthesize aURL, aName;
 
 
 /*
@@ -28,9 +31,10 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+	NSLog(@"ON WEBVIEWCONTROLLER %@", aURL);
 	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:
-													   (@"http://www.google.com")]]];
+													   (@"%@", aURL)]]];
+	self.title = (@"%@", aName);
 }
 
 

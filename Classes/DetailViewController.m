@@ -10,9 +10,15 @@
 #import "RootViewController.h"
 #import "Occupation.h"
 #import "Topic.h"
+#import "OKWebViewController.h"
 
 
 @implementation DetailViewController
+
+@synthesize theObject;
+@synthesize occTopicsName;
+@synthesize myTopicNames;
+@synthesize myTopicURLS;
 
 
 #pragma mark -
@@ -31,14 +37,22 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	[super viewDidLoad];
+	x = 0;
+	occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
+	//myTopics = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	self.title = (@"Topics");
+	
+    
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,7 +94,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 16;
+
+	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	return [myTopicNames count];
 }
 
 
@@ -95,10 +111,20 @@
     }
     
     // Configure the cell...
+	//TODO: Pass *theObject from RootViewController
 	
-	NSManagedObject *theObject = self;
-    NSSet *occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
-    return cell;
+	
+	//TODO: Fetch Topic Entity
+	
+	
+	//TODO: Display cell contents (topic list for selected occupation)
+
+	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	cell.textLabel.text = [myTopicNames objectAtIndex:indexPath.row];
+	x = indexPath.row;
+
+	return cell;
+	
 }
 
 
@@ -145,15 +171,25 @@
 #pragma mark -
 #pragma mark Table view delegate
 
+
+//TODO: Pass the selected topic URL to the OKWebViewController
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+	 myTopicURLS = [[theObject valueForKeyPath:@"topics.tURL"] allObjects];
+	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	NSString *aURL = [myTopicURLS objectAtIndex:indexPath.row];
+	NSString *aName = [myTopicNames objectAtIndex:indexPath.row];
+	NSLog(@"%@", aURL);
+	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+	webViewController.aURL = aURL;
+	webViewController.aName = aName;
+	NSLog(@"AURL VALUE IS %@", aURL);
+	 [self.navigationController pushViewController:webViewController animated:YES];
+	
+	 [webViewController release];
+	 
 }
 
 
