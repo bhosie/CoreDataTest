@@ -43,7 +43,10 @@
 	x = 0;
 	occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
 	//myTopics = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
-	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	
+	//Create an Array of Topics from the Topic Entities. Proper construction courtesy of "THE RULES"
+	myTopicNames = [[NSArray alloc] initWithObjects:([[theObject valueForKeyPath:@"topics.tName"] allObjects]), nil];
 	self.title = (@"Topics");
 	
     
@@ -95,7 +98,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
 
-	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	
+	NSLog(@"IN NUMBEROFROWS...\n %i", [myTopicNames count]);
 	return [myTopicNames count];
 }
 
@@ -119,9 +124,11 @@
 	
 	//TODO: Display cell contents (topic list for selected occupation)
 
-	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
-	cell.textLabel.text = [myTopicNames objectAtIndex:indexPath.row];
+	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	//cell.textLabel.text = [myTopicNames objectAtIndex:indexPath.row];
+	NSLog(@"IN CELL FOR ROW...\n%@", myTopicNames);
 	x = indexPath.row;
+	x++;
 
 	return cell;
 	
