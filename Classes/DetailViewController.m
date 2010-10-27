@@ -16,9 +16,7 @@
 @implementation DetailViewController
 
 @synthesize theObject;
-@synthesize occTopicsName;
-@synthesize myTopicNames;
-@synthesize myTopicURLS;
+@synthesize myTopicNames, myTopicURLS;
 
 
 #pragma mark -
@@ -40,13 +38,11 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	x = 0;
-	occTopicsName = [theObject valueForKeyPath:@"topics.tName"];
-	//myTopics = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
-	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
 	
-	//Create an Array of Topics from the Topic Entities. Proper construction courtesy of "THE RULES"
-	myTopicNames = [[NSArray alloc] initWithObjects:([[theObject valueForKeyPath:@"topics.tName"] allObjects]), nil];
+	//Create an array of Topics for theObject and retain for use across the class
+	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+	[myTopicNames retain];
+	
 	self.title = (@"Topics");
 	
     
@@ -97,10 +93,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-
-	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
 	
-	NSLog(@"IN NUMBEROFROWS...\n %i", [myTopicNames count]);
 	return [myTopicNames count];
 }
 
@@ -115,22 +108,10 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
-	//TODO: Pass *theObject from RootViewController
-	
-	
-	//TODO: Fetch Topic Entity
-	
-	
-	//TODO: Display cell contents (topic list for selected occupation)
 
 	//myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
-	//cell.textLabel.text = [myTopicNames objectAtIndex:indexPath.row];
-	NSLog(@"IN CELL FOR ROW...\n%@", myTopicNames);
-	x = indexPath.row;
-	x++;
-
-	return cell;
+	cell.textLabel.text = [myTopicNames objectAtIndex:indexPath.row];
+    return cell;
 	
 }
 
@@ -181,19 +162,23 @@
 
 //TODO: Pass the selected topic URL to the OKWebViewController
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	 myTopicURLS = [[theObject valueForKeyPath:@"topics.tURL"] allObjects];
-	myTopicNames = [[theObject valueForKeyPath:@"topics.tName"] allObjects];
+    //Navigation logic goes here. Create and push another view controller.
+	
+	//Grab the URLS for the Topics of the Current Occupation
+	myTopicURLS = [[theObject valueForKeyPath:@"topics.tURL"] allObjects];
+
+	//Store the selected Topic's URL and Name
 	NSString *aURL = [myTopicURLS objectAtIndex:indexPath.row];
 	NSString *aName = [myTopicNames objectAtIndex:indexPath.row];
-	NSLog(@"%@", aURL);
-	 OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	webViewController.aURL = aURL;
-	webViewController.aName = aName;
-	NSLog(@"AURL VALUE IS %@", aURL);
-	 [self.navigationController pushViewController:webViewController animated:YES];
+	
+	//Initialize the next view controller and pass the URL and Name
+	OKWebViewController *webViewController = [[OKWebViewController alloc] initWithNibName:@"OKWebViewController" bundle:nil];
+	webViewController.aURL = aURL; //loads in webView
+	webViewController.aName = aName; //displays topic name in OKWebViewController's title bar
+		NSLog(@"aName: %@", aName);
+	
+	//Push the webViewController onto the stack
+	[self.navigationController pushViewController:webViewController animated:YES];
 	
 	 [webViewController release];
 	 
@@ -213,11 +198,13 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+	[myTopicNames release];
 }
 
 
 - (void)dealloc {
     [super dealloc];
+	
 }
 
 
