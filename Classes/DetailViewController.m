@@ -178,6 +178,7 @@
 		NSLog(@"aName: %@", aName);
 	
 	//Push the webViewController onto the stack
+	NSLog(@"%@", self.navigationController);
 	[self.navigationController pushViewController:webViewController animated:YES];
 	
 	 [webViewController release];
